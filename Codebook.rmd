@@ -1,0 +1,43 @@
+Data dictionary - tidy_dataset
+===============================
+-------   
+
+**subject**   
+Datatype   :  integer (1 - 30)    
+An identifier of the subject who carried out the experiment. Identifiers are as below:-      
+```{r echo=F, results='markup'}
+tidy_dataset <- read.table(file="./tidy_dataset.txt", as.is=T, header=T, sep=" ")
+unique(tidy_dataset$subject)
+```
+          
+**activity**     
+    Datatype : character   
+    An activity in which the the subject was involved in and mesurements were recorded.  
+    
+```{r echo=F, results='markup'}
+require(knitr)
+
+activity_labels <- read.table(file="./UCI HAR Dataset/activity_labels.txt", as.is=T)
+names(activity_labels) <- c("code", "activity_description")
+activity_labels
+```
+
+
+
+**Other**  
+   Datatype : double:-      
+* Time domain signals are prefix ***'t'*** to denote time.   
+* Frequency domain signals are prefixed with ***'f'*** to denote frequency.   
+* Time body linear acceleration and angular velocity derived from Jerk signals are coded as (tBodyAccJerk_XYZ and tBodyGyroJerk_XYZ).   
+* The magnitude of three-dimensional signals were calculated using the Euclidean norm and coded as:-   
+  (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+These three parameters reflect in the variable names as below:-
+
+```{r echo=F, results='markup'}
+tidy_dataset <- read.table(file="./tidy_dataset.txt", as.is=T, header=T, sep=" ")
+names(tidy_dataset[3:length(tidy_dataset)])
+names(df)
+```   
+
+
